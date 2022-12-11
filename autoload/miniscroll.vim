@@ -13,11 +13,11 @@ def Move(diff: number, timer: number)
   endif
 enddef
 
-export def Smooth_scroll(speed: number)
+export def Smooth_scroll(speed: number, ntimes: number)
   const stop_time = get(g:, 'stop_time', 10)
   var smooth_scroll_timer = []
   var working_timer = get(smooth_scroll_timer, 0)
-  var rep = &scroll / abs(speed)
+  var rep = ntimes * &scroll / abs(speed)
   if !empty(timer_info(working_timer))
     timer_stop(working_timer)
   endif
